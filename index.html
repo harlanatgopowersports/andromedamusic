@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Andrømeda — EPK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050510;
+      color: #f7f7ff;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #272758 0, #050510 55%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 3rem;
+      padding: 3.5rem 1.5rem 2.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      color: #a7a7ff;
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 4vw, 3.5rem);
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      color: #d6d6ff;
+      max-width: 36rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #ff4b8b, #ffb347);
+      color: #050510;
+      font-weight: 600;
+    }
+
+    .btn.ghost {
+      border-color: #54547a;
+      color: #e2e2ff;
+      background: transparent;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #a9a9d9;
+    }
+
+    .hero-photo {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .middle-photo {
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .last-photo {
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-photo-text {
+      font-size: 0.85rem;
+      color: #b0b0ff;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .section {
+      padding: 2.75rem 1.5rem;
+    }
+
+    .section-alt {
+      background: #070716;
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 1.75rem;
+      color: #bcbce9;
+      max-width: 34rem;
+      font-size: 0.95rem;
+    }
+
+    .section-highlight {
+      padding-top: 1.25rem;
+    }
+
+    .highlight-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .highlight-card {
+      border-radius: 16px;
+      border: 1px solid #2a2a50;
+      padding: 1.5rem;
+      background: linear-gradient(145deg, #101025, #050510);
+    }
+
+    .highlight-card h2,
+    .highlight-card h3 {
+      margin: 0 0 0.75rem;
+    }
+
+    .highlight-card p,
+    .highlight-card ul {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #e6e6ff;
+    }
+
+    .highlight-card ul {
+      padding-left: 1.1rem;
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .track-card {
+      border-radius: 14px;
+      border: 1px solid #2a2a50;
+      padding: 1.25rem;
+      background: #101025;
+    }
+
+    .track-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .track-card p {
+      margin: 0 0 0.9rem;
+      font-size: 0.9rem;
+      color: #cfcff9;
+    }
+
+    .track-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #ff90c2;
+    }
+
+    .bio-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .body-text {
+      margin: 0 0 1rem;
+      color: #e4e4ff;
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .body-text.small {
+      font-size: 0.85rem;
+      color: #bbbbf3;
+    }
+
+    .live-grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .live-heading {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.93rem;
+      color: #e4e4ff;
+    }
+
+    .link-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .link-pill {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #3a3a60;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f7f7ff;
+      background: #101025;
+    }
+
+    .booking-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .booking-box {
+      margin-top: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #3a3a60;
+      background: #0c0c1b;
+      font-size: 0.93rem;
+    }
+
+    .booking-line {
+      margin: 0 0 0.35rem;
+    }
+
+    .booking-line a {
+      color: #ff90c2;
+      text-decoration: none;
+    }
+
+    .footer {
+      padding: 1.25rem 1.5rem 2rem;
+      background: #04040a;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #9a9abc;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: #c9c9ff;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2.25rem;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .section {
+        padding-inline: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <!-- HERO / HEADER -->
+    <header class="hero" id="top">
+      <div class="hero-content">
+        <p class="hero-tag">Electronic • Hip-Hop • R&B</p>
+        <h1 class="hero-title">Andrømeda</h1>
+        <p class="hero-subtitle">
+          Genre-shifting rapper, singer, and producer blending atmospheric hip-hop,
+          R&amp;B and pop-inspired melodies with conceptual, autobiographical storytelling.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#music" class="btn primary">Listen</a>
+          <a href="mailto:filmsbyharlan@gmail.com?subject=Booking%20Inquiry%20for%20Andr%C3%B8meda&body=Hi%20Harlan%2C%0A%0AWe'd%20love%20to%20book%20Andr%C3%B8meda%20for%20an%20upcoming%20event.%20Here%20are%20the%20details%3A%0A%0ADate%3A%0AVenue%3A%0ABudget%3A%0ASet%20Length%3A%0A%0AThanks!" class="btn ghost">Booking &amp; Contact</a>
+        </div>
+
+        <div class="hero-meta">
+          <span>Based in Dallas–Fort Worth, TX</span>
+          <span>Available for shows &amp; support slots</span>
+        </div>
+      </div>
+
+      
+        <!-- Replace this block with <img> if you want -->
+        <div>
+           <img class="hero-photo" src="assets/images/epk/epk-main-photo.jpeg" alt="Andrømeda Portrait" />
+        </div>
+      
+    </header>
+
+    <!-- SECTION: HIGHLIGHT REEL -->
+    <section class="section section-highlight">
+      <div class="section-inner">
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <h2>For Booking</h2>
+            <p>
+              High-energy live sets with melodic depth, cinematic production,
+              and crowd engagement. Perfect for hip-hop nights, alternative
+              showcases, and experimental lineups.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <h3>Key Highlights</h3>
+            <ul>
+              <li>Opened for <strong>Patrick Junya</strong> at Tulips FTW</li>
+              <li><strong>LoveMic Artist of the Month</strong> (two-time)</li>
+              <li>Headliner — <strong>sold-out</strong> album release show at <strong>West Side Art Collective</strong></li>
+              <li>Headliner — <strong>Bowlounge FTW</strong></li>
+              <li>Booked to headline the debut of <strong>Rising Voices</strong> (Jan 4th)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+<img class="middle-photo" src="assets/images/epk/epk-rebirth-show-1.jpeg" alt="Andrømeda, Live at West Side Art Collective" />
+    <!-- SECTION: MUSIC -->
+    <section class="section" id="music">
+      <div class="section-inner">
+        <h2 class="section-title">Featured Tracks</h2>
+        <p class="section-subtitle">
+          Core songs that define Andrømeda's sound and live set.
+        </p>
+
+        <div class="track-grid">
+          <article class="track-card">
+            <h3>REBIRTH (ALBUM)</h3>
+            <p>Atmospheric, emotional, melodic.</p>
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/rebirth" target="_blank" rel="noopener noreferrer" class="track-link">
+              Listen
+            </a>
+          </article>
+
+          <article class="track-card">
+            <h3>2GIFTED</h3>
+            <p>High-energy, motivational rap moment.</p>
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/2gifted" target="_blank" rel="noopener noreferrer" class="track-link">
+              Listen
+            </a>
+          </article>
+
+          <article class="track-card">
+            <h3>LOVESICK</h3>
+            <p>Conceptual, heartfelt storytelling.</p>
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/lovesick" target="_blank" rel="noopener noreferrer" class="track-link">
+              Listen
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BIO -->
+    <section class="section section-alt" id="bio">
+      <div class="section-inner bio-layout">
+        <div>
+          <h2 class="section-title">Artist Bio</h2>
+          <p class="body-text">
+            Andrømeda is the creative moniker of Texas artist Harlan Lawson — a
+            rapper, singer, and producer crafting a hybrid sound rooted in atmospheric
+            hip-hop, R&amp;B textures, and pop-driven melodic hooks. His music blends
+            conceptual narratives with autobiographical metaphors, exploring themes of
+            identity, reinvention, and inner transformation.
+          </p>
+          <p class="body-text">
+            With a background in both self-production and live performance, Andrømeda
+            builds an immersive sonic universe that feels both intimate and otherworldly.
+            His sets balance high-energy rap moments with emotionally charged melodic peaks,
+            keeping crowds engaged from start to finish while bringing a distinct visual
+            and emotional presence to every stage.
+          </p>
+        </div>
+      </div>
+    </section>
+<img class="last-photo" src="assets/images/epk/epk-tulips-2-gzo.jpeg" alt="Andrømeda, Live at Tulips FTW with Gervatti" />
