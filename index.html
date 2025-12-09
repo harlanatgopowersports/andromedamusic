@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Andrømeda — EPK</title>
@@ -308,6 +309,43 @@
         padding-inline: 1.25rem;
       }
     }
+
+    .video-section {
+      max-width: 1200px;
+      /* makes it bigger on desktop */
+      margin: 3.5rem auto 2rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      margin-bottom: 1.25rem;
+      font-size: 1.6rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      /* controls final desktop size */
+      margin: 0 auto;
+      /* centers it */
+      padding-top: 56.25%;
+      /* 16:9 ratio */
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      border: 1px solid #2a2a50;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 
@@ -335,13 +373,23 @@
         </div>
       </div>
 
-      
-        <!-- Replace this block with <img> if you want -->
-        <div>
-           <img class="hero-photo" src="assets/images/epk/epk-main-photo.jpeg" alt="Andrømeda Portrait" />
-        </div>
-      
+
+      <!-- Replace this block with <img> if you want -->
+      <div>
+        <img class="hero-photo" src="assets/images/epk/epk-main-photo.jpeg" alt="Andrømeda Portrait" />
+      </div>
+
     </header>
+    <!-- PUT VIDEO RIGHT HERE -->
+    <section class="video-section">
+      <h2>Second Wind - Music Video</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/w-hgiIVFlng?start=15" title="Andrømeda — Featured Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
     <!-- SECTION: HIGHLIGHT REEL -->
     <section class="section section-highlight">
@@ -360,7 +408,8 @@
             <ul>
               <li>Opened for <strong>Patrick Junya</strong> at Tulips FTW</li>
               <li><strong>LoveMic Artist of the Month</strong> (two-time)</li>
-              <li>Headliner — <strong>sold-out</strong> album release show at <strong>West Side Art Collective</strong></li>
+              <li>Headliner — <strong>sold-out</strong> album release show at <strong>West Side Art Collective</strong>
+              </li>
               <li>Headliner — <strong>Bowlounge FTW</strong></li>
               <li>Booked to headline the debut of <strong>Rising Voices</strong> (Jan 4th)</li>
             </ul>
@@ -368,7 +417,8 @@
         </div>
       </div>
     </section>
-<img class="middle-photo" src="assets/images/epk/epk-rebirth-show-1.jpeg" alt="Andrømeda, Live at West Side Art Collective" />
+    <img class="middle-photo" src="assets/images/epk/epk-rebirth-show-1.jpeg"
+      alt="Andrømeda, Live at West Side Art Collective" />
     <!-- SECTION: MUSIC -->
     <section class="section" id="music">
       <div class="section-inner">
@@ -381,7 +431,8 @@
           <article class="track-card">
             <h3>REBIRTH (ALBUM)</h3>
             <p>Atmospheric, emotional, melodic.</p>
-            <a href="https://distrokid.com/hyperfollow/andrmeda1/rebirth" target="_blank" rel="noopener noreferrer" class="track-link">
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/rebirth" target="_blank" rel="noopener noreferrer"
+              class="track-link">
               Listen
             </a>
           </article>
@@ -389,7 +440,8 @@
           <article class="track-card">
             <h3>2GIFTED</h3>
             <p>High-energy, motivational rap moment.</p>
-            <a href="https://distrokid.com/hyperfollow/andrmeda1/2gifted" target="_blank" rel="noopener noreferrer" class="track-link">
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/2gifted" target="_blank" rel="noopener noreferrer"
+              class="track-link">
               Listen
             </a>
           </article>
@@ -397,7 +449,8 @@
           <article class="track-card">
             <h3>LOVESICK</h3>
             <p>Conceptual, heartfelt storytelling.</p>
-            <a href="https://distrokid.com/hyperfollow/andrmeda1/lovesick" target="_blank" rel="noopener noreferrer" class="track-link">
+            <a href="https://distrokid.com/hyperfollow/andrmeda1/lovesick" target="_blank" rel="noopener noreferrer"
+              class="track-link">
               Listen
             </a>
           </article>
@@ -427,4 +480,5 @@
         </div>
       </div>
     </section>
-<img class="last-photo" src="assets/images/epk/epk-tulips-2-gzo.jpeg" alt="Andrømeda, Live at Tulips FTW with Gervatti" />
+    <img class="last-photo" src="assets/images/epk/epk-tulips-2-gzo.jpeg"
+      alt="Andrømeda, Live at Tulips FTW with Gervatti" />
